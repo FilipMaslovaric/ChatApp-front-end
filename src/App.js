@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { Message} from 'reactbulma';
 import axios from 'axios';
 import './App.css';
-
 const api = axios.create({
   baseURL: process.env.REACT_APP_API_URL,
   timeout: 2000
