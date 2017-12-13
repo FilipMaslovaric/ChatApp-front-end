@@ -3,6 +3,11 @@ import { Message} from 'reactbulma';
 import axios from 'axios';
 import './App.css';
 
+const api = axios.create({
+  baseURL: process.env.REACT_APP_API_URL,
+  timeout: 2000
+});
+
 class App extends Component {
 
   // Create a messages array, and set the name and message input values to an empty string, in state
@@ -22,7 +27,7 @@ class App extends Component {
 
     if (this.state.nameInput && this.state.messageInput) {
 
-      axios.post('/api/messages', {
+      api.post('/api/messages', {
         user: this.state.nameInput,
         content: this.state.messageInput
       })
@@ -43,7 +48,7 @@ class App extends Component {
 
   refreshMessages = () => {
 
-    axios.get('/api/messages')
+    api.get('/api/messages')
       .then((response) => {
         console.log('Response!');
         console.log(response.data);
@@ -92,7 +97,7 @@ class App extends Component {
 
   componentDidMount() {
     setInterval(this.refreshMessages, 10000);
-    axios.get('/api/messages')
+    api.get('/api/messages')
       .then((response) => {
         console.log('Response!');
         console.log(response.data);
