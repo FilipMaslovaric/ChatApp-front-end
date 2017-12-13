@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Message, MessageBody, MessageHeader } from 'reactbulma';
+import { Message} from 'reactbulma';
 import axios from 'axios';
 import './App.css';
 
@@ -69,7 +69,6 @@ class App extends Component {
 
     return (
       <div className="App">
-      <Field 
         <input onChange={this.handleChange} placeholder='Username' name='nameInput' />
         <br />
         <textarea onChange={this.handleChange} placeholder='Message' name='messageInput' />
